@@ -83,6 +83,13 @@ watismusicFactory) {
         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+youtubeID);
     };
 
+    $scope.star = function(id) {
+        $scope.portalHelpers.invokeServerFunction('star',{id:id}).then(function (
+            result) {
+            $scope.dbData.value = [];
+        });
+    }
+    
     // Create table, invoked by a button press from database test example
     $scope.createTable = function () {
         $scope.portalHelpers.invokeServerFunction('createTable').then(function (
