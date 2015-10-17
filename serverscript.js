@@ -10,6 +10,15 @@ function getRecommended(numToRetrieve){
 
 }
 
+function insertSuggestion() {
+  var data = JSON.parse(args.Get("data"));
+  var q = 'INSERT INTO songs VALUES('+data.title +', '+data.artist+', '+data.linkID+', '+0+', '+data.genre+')';
+  //return q;
+  //return data;
+    db.Execute(q);
+    return getRecommended();
+}
+
 // Retreive data from the database
 function getData() {
     var queryResult = db.Execute('SELECT * FROM sampleTable');
