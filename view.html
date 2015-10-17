@@ -10,6 +10,31 @@
 
 <script type="text/ng-template" id="main.html">
 
+        <!-- YouTube Demo -->
+    <div class="collapseMe">
+      <widget-row>
+          <widget-row>
+            <widget-cell>
+                <h2>YouTube Example</h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/S0TemlxiMdw" frameborder="0" allowfullscreen></iframe>
+            </widget-cell>
+        </widget-row>
+          <widget-row>
+            <widget-cell>
+        <widget-list list="item in YouTubeData" show-items="3">
+            <widget-row clickable ng-click="showDetails(item)">
+                <widget-cell fill>{{item.title}}</widget-cell>
+                <widget-cell>
+                    <widget-icon name="angle-right"></widget-icon>
+                </widget-cell>
+            </widget-row>
+        </widget-list>
+                </widget-cell>
+                </widget-row>
+            
+      </widget-row>
+    </div>
+    
     <!-- SEARCH AND LIST EXAMPLE -->
     <div class="collapseMe">
         <widget-row>
