@@ -59,6 +59,7 @@ watismusicFactory) {
       }
     ];
     
+    
     // initialize the service
     watismusicFactory.init($scope);
 
