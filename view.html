@@ -33,7 +33,7 @@
                                         allowfullscreen></iframe>
                                     </widget-row>
                                     <widget-row class="star">
-                                    	<widget-icon name="star" ng-click="voteup()"></widget-icon>
+                                    	<widget-icon name="star" ng-click="star(item.linkID);$(this).next().value(2)"></widget-icon>
                                         {{item.rating}}
                                     </widget-row>
                                 </widget-cell>
