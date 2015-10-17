@@ -100,7 +100,7 @@ watismusicFactory) {
                 data: JSON.stringify($scope.suggestionForm)
             }).then(function (result) {
                 console.log(result);
-                //$scope.youtubeData.value = JSON.parse(result.data);
+                $scope.youtubeData.value = JSON.parse(result.data);
             });
             //$scope.insertValue.value = "";
         //}
