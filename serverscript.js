@@ -38,13 +38,17 @@ function createTable() {
 
 // Insert into the database
 function insert() {
+	var info = args.Get("youtubeInfo");
+	
     if (args.Get("value").length > 50)
         return '{"result":"error"}';
     else {
-        db.Execute('INSERT INTO sampleTable VALUES(@currentUser,@value)');
+        db.Execute('INSERT INTO songs VALUES(@youtubeInfo.title,@youtubeInfo.artist,@youtubeInfo.linkId,@youtubeInfo.rating,@youtubeInfo.genre)');
         return getData();
     }
 }
+
+
 
 // OPEN DATA API EXAMPLE
 
