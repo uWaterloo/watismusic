@@ -2,10 +2,18 @@
 	color:red;
 }
 
-.hori-list{
-    
+.hori-list > widget-cell{
 }
 
 .hori-list, .hori-list > div > div{
-    display: inline-block;
+    display: inline-block
+}
+
+.star {
+ 	text-align: center;
+}
+.star > .widget-icon:before{
+    width: 4px;
+    height: 4px;
+    color: yellow;
 }
