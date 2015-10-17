@@ -44,6 +44,21 @@ watismusicFactory) {
         category: '2'
     }];
 
+    $scope.YouTubeData = [
+      {
+        title: "testTitle1",
+        id: "R7vmHGAshi8",
+        rating: 0,
+        genre: "pop"
+      },
+      {
+        title: "testTitle2",
+        id: "S0TemlxiMdw",
+        rating: 0,
+        genre: "classical"
+      }
+    ];
+    
     // initialize the service
     watismusicFactory.init($scope);
 
