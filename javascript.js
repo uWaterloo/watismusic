@@ -44,22 +44,22 @@ watismusicFactory) {
         category: '2'
     }];
 
-    $scope.YouTubeData = [
-      {
-        title: "testTitle1",
-        id: "R7vmHGAshi8",
-        rating: 0,
-        genre: "pop"
-      },
-      {
-        title: "testTitle2",
-        id: "S0TemlxiMdw",
-        rating: 0,
-        genre: "classical"
-      }
-    ];
-    
-    
+    // $scope.YouTubeData = [
+    //   {
+    //     title: "testTitle1",
+    //     id: "R7vmHGAshi8",
+    //     rating: 0,
+    //     genre: "pop"
+    //   },
+    //   {
+    //     title: "testTitle2",
+    //     id: "S0TemlxiMdw",
+    //     rating: 0,
+    //     genre: "classical"
+    //   }
+    // ];
+
+
     // initialize the service
     watismusicFactory.init($scope);
 
@@ -76,7 +76,7 @@ watismusicFactory) {
             $scope.portalHelpers.toggleLoading(false);
         }
     });
-    
+
     $scope.idToYoutubeLink = function(youtubeID){
         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+youtubeID);
     }
@@ -151,6 +151,9 @@ watismusicFactory) {
         var item = {
             value: null
         };
+        var youtubeData = {
+          value: null
+        };
         var sourcesLoaded = 0;
 
         var init = function ($scope) {
@@ -178,11 +181,16 @@ watismusicFactory) {
                 dbData.value = result;
                 sourceLoaded();
             });
+            $scope.portalHelpers.invokeServerFunction('getRecommended').then(function (result) {
+                youtubeData.value = JSON.parse(result.data);
+                console.log(youtubeData.value);
+                sourceLoaded();
+            });
         }
 
         function sourceLoaded() {
             sourcesLoaded++;
-            if (sourcesLoaded == 3)
+            if (sourcesLoaded == 4)
                 loading.value = false;
         }
 
@@ -193,6 +201,7 @@ watismusicFactory) {
             links: links,
             openDataExampleData: openDataExampleData,
             dbData: dbData,
+            youtubeData: youtubeData,
             item: item
         };
 
