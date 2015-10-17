@@ -1,5 +1,15 @@
 // DATABASE PERSISTENCE EXAMPLE
 
+// YOUTUBE DATA
+function getRecommended(numToRetrieve){
+    var n = numToRetrieve || 5;
+    // todo: limit
+    var queryResult = db.Execute('SELECT * FROM songs ORDER BY rating DESC');
+    
+    return queryResult;
+    
+}
+
 // Retreive data from the database
 function getData() {
     var queryResult = db.Execute('SELECT * FROM sampleTable');
@@ -10,7 +20,7 @@ function getData() {
     return queryResult;
 }
 
-// Create talbe
+// Create table
 function createTable() {
     var result = {};
 
