@@ -21,10 +21,10 @@
             <widget-row>
                 <widget-cell>
                     <widget-list list="item in YouTubeData" show-items="3">
-                        <widget-row clickable ng-click="showDetails(item)">
+                        <widget-row>
                             <widget-cell fill>
                                 <widget-row>{{item.title}}</widget-row>
-                                <widget-row><iframe width="560" height="315" src="https://www.youtube.com/embed/item.id" frameborder="0" allowfullscreen></iframe></widget-row></widget-cell>
+                                <widget-row><iframe width="560" height="315" src="{{idToYoutubeLink(item.id);}}" name="1/{{item.id}}" frameborder="0" allowfullscreen></iframe></widget-row></widget-cell>
                             <widget-cell>
                                 <widget-icon name="angle-right"></widget-icon>
                             </widget-cell>
