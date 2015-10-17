@@ -12,9 +12,9 @@ function getRecommended(numToRetrieve){
 
 function insertSuggestion() {
   var data = JSON.parse(args.Get("data"));
-  var q = 'INSERT INTO songs VALUES('+data.title +', '+data.artist+', '+data.linkID+', '+0+', '+data.genre+')';
-  //return q;
-  //return data;
+  var q = 'INSERT INTO songs VALUES("'+data.title +'", "'+data.artist+'", "'+data.linkID+'", "'+0+'", "'+data.genre+'")';
+  // return q;
+  //return data
     db.Execute(q);
     return getRecommended();
 }
