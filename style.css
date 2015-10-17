@@ -1,3 +1,11 @@
 #cssTest{
 	color:red;
 }
+
+.hori-list{
+    
+}
+
+.hori-list, .hori-list > div > div{
+    display: inline-block;
+}
