@@ -1,6 +1,6 @@
 angular.module('PortalApp')
 
-.controller('watismusicCtrl', ['$scope', '$http', '$q', 'watismusicFactory', function ($scope, $http, $q,
+.controller('watismusicCtrl', ['$scope', '$http', '$q', '$sce', 'watismusicFactory', function ($scope, $http, $q, $sce,
 watismusicFactory) {
 
     // Widget Configuration
@@ -75,6 +75,10 @@ watismusicFactory) {
             $scope.portalHelpers.toggleLoading(false);
         }
     });
+    
+    $scope.idToYoutubeLink = function(youtubeID){
+        return $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+youtubeID);
+    }
 
     // Create table, invoked by a button press from database test example
     $scope.createTable = function () {
