@@ -10,6 +10,18 @@ function getRecommended(numToRetrieve){
 
 }
 
+function star() {
+    var id=args.Get("id");
+  var res = db.Execute('UPDATE songs SET rating=rating+1 WHERE linkID="'+id+'"');
+    return res;
+}
+
+function getRating(){
+    var id=args.Get("id");
+    var res = db.Execute('SELECT rating FROM songs WHERE linkID="'+id+'"');
+    return res;
+}
+
 function insertSuggestion() {
   var data = JSON.parse(args.Get("data"));
   var q = 'INSERT INTO songs VALUES("'+data.title +'", "'+data.artist+'", "'+data.linkID+'", "'+0+'", "'+data.genre+'")';
