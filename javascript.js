@@ -11,10 +11,12 @@ watismusicFactory) {
 
     // Import variables and functions from service
     $scope.insertValue = watismusicFactory.insertValue;
+    $scope.suggestionForm = watismusicFactory.suggestionForm;
     $scope.loading = watismusicFactory.loading;
     $scope.links = watismusicFactory.links;
     $scope.openDataExampleData = watismusicFactory.openDataExampleData;
     $scope.dbData = watismusicFactory.dbData;
+    $scope.youtubeData = watismusicFactory.youtubeData;
     $scope.item = watismusicFactory.item;
 
     // Model for the search and list example
@@ -79,7 +81,7 @@ watismusicFactory) {
 
     $scope.idToYoutubeLink = function(youtubeID){
         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+youtubeID);
-    }
+    };
 
     // Create table, invoked by a button press from database test example
     $scope.createTable = function () {
@@ -87,20 +89,21 @@ watismusicFactory) {
             result) {
             $scope.dbData.value = [];
         });
-    }
+    };
 
     // Handle form submit in the database test example
-    $scope.insertData = function () {
-        if ($scope.insertValue.value.length > 50)
-            alert('value should be less than 50 characters');
-        else {
-            $scope.portalHelpers.invokeServerFunction('insert', {
-                value: $scope.insertValue.value
+    $scope.insertSuggestion = function () {
+        //if ($scope.insertValue.value.length > 50)
+        //    alert('value should be less than 50 characters');
+        //else {
+            $scope.portalHelpers.invokeServerFunction('insertSuggestion', {
+                data: JSON.stringify($scope.suggestionForm)
             }).then(function (result) {
-                $scope.dbData.value = result;
+                console.log(result);
+                //$scope.youtubeData.value = JSON.parse(result.data);
             });
-            $scope.insertValue.value = "";
-        }
+            //$scope.insertValue.value = "";
+        //}
     };
 <<<<<<< HEAD
 	    // Handle form submit in the song submissions
@@ -120,6 +123,8 @@ watismusicFactory) {
 =======
 >>>>>>> origin/h87zhu-branch
 
+    $scope.insertData = function(){};
+
     // Handle click on an item in the list and search example
     $scope.showDetails = function (item) {
         // Set which item to show in the details view
@@ -134,12 +139,12 @@ watismusicFactory) {
         var prevItem = $scope.portalHelpers.getPrevListItem();
         // refresh details view with the new item
         $scope.showDetails(prevItem);
-    }
+    };
 
     $scope.nextItem = function () {
         var nextItem = $scope.portalHelpers.getNextListItem();
         $scope.showDetails(nextItem);
-    }
+    };
 
 }])
     // Factory maintains the state of the widget
@@ -155,6 +160,13 @@ watismusicFactory) {
         };
         var insertValue = {
             value: null
+        };
+        var suggestionForm = {
+          title: null,
+          artist: null,
+          linkID: null,
+          rating: null,
+          genre: null
         };
         var links = {
             value: null
@@ -196,6 +208,7 @@ watismusicFactory) {
 
             $scope.portalHelpers.invokeServerFunction('getData').then(function (result) {
                 dbData.value = result;
+                console.log(result);
                 sourceLoaded();
             });
             $scope.portalHelpers.invokeServerFunction('getRecommended').then(function (result) {
@@ -203,7 +216,7 @@ watismusicFactory) {
                 console.log(youtubeData.value);
                 sourceLoaded();
             });
-        }
+        };
 
         function sourceLoaded() {
             sourcesLoaded++;
@@ -215,6 +228,7 @@ watismusicFactory) {
             init: init,
             loading: loading,
             insertValue: insertValue,
+            suggestionForm: suggestionForm,
             links: links,
             openDataExampleData: openDataExampleData,
             dbData: dbData,
@@ -237,5 +251,5 @@ watismusicFactory) {
             // Filter your output here by iterating over input elements
             var output = input;
             return output;
-        }
+        };
     });
