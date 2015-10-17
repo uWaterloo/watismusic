@@ -7,5 +7,14 @@
 }
 
 .hori-list, .hori-list > div > div{
-    display: inline-block;
+    display: inline-block
+}
+
+.star {
+ 	text-align: center;
+}
+.star > i:before{
+ 	text-align: center;
+    width: 4px;
+    height: 4px;
 }
