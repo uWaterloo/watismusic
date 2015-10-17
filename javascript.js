@@ -105,23 +105,6 @@ watismusicFactory) {
             //$scope.insertValue.value = "";
         //}
     };
-<<<<<<< HEAD
-	    // Handle form submit in the song submissions
-    $scope.insertData = function () {
-        if ($scope.youtubeInfo.title.length > 50)
-            alert('value should be less than 50 characters');
-        else {
-            $scope.portalHelpers.invokeServerFunction('insert', {
-                youtubeInfo: $scope.insertValue.value
-            }).then(function (result) {
-              //$scope.dbData.value = result;
-            });
-            //$scope.insertValue.value = "";
-        }
-    };
-
-=======
->>>>>>> origin/h87zhu-branch
 
     $scope.insertData = function(){};
 
