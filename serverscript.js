@@ -45,7 +45,7 @@ function createTable() {
     return JSON.stringify(result);
 }
 
-// Insert into the databases
+// Insert into the database
 function insert() {
     if (args.Get("value").length > 50)
         return '{"result":"error"}';
