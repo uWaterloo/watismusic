@@ -5,9 +5,9 @@ function getRecommended(numToRetrieve){
     var n = numToRetrieve || 5;
     // todo: limit
     var queryResult = db.Execute('SELECT * FROM songs ORDER BY rating DESC');
-    
-    return queryResult;
-    
+
+    return JSON.stringify({status:"retrieved", data:queryResult});
+
 }
 
 // Retreive data from the database

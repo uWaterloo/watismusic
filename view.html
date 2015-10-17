@@ -18,20 +18,22 @@
                     <h2>YouTube Example</h2>
                 </widget-cell>
             </widget-row>
-            <widget-row>
-                <widget-cell>
-                    <widget-list list="item in YouTubeData" show-items="3">
-                        <widget-row>
-                            <widget-cell fill>
-                                <widget-row>{{item.title}}</widget-row>
-                                <widget-row><iframe width="560" height="315" src="{{idToYoutubeLink(item.id);}}" name="1/{{item.id}}" frameborder="0" allowfullscreen></iframe></widget-row></widget-cell>
-                            <widget-cell>
-                                <widget-icon name="angle-right"></widget-icon>
-                            </widget-cell>
-                        </widget-row>
-                    </widget-list>
-                </widget-cell>
-            </widget-row>
+            <div ng-if="!youtubeData.value">
+            <h1>TESTING</h1>
+            </div>
+            <div ng-if="!youtubeData.value">
+              <widget-row>
+                  <widget-cell>
+                      <widget-list list="item in youtubeData.value" show-items="3">
+                          <widget-row>
+                              <widget-cell fill>
+                                  <widget-row>{{item.title}}</widget-row>
+                                  <widget-row><iframe width="560" height="315" src="{{idToYoutubeLink(item.linkID);}}" name="2/{{item.linkID}}" frameborder="0" allowfullscreen></iframe></widget-row></widget-cell>
+                          </widget-row>
+                      </widget-list>
+                  </widget-cell>
+              </widget-row>
+            </div>
 
         </widget-row>
     </div>
@@ -48,29 +50,29 @@
   <br/>
   Link ID:<br/>
   <input type="text" name="linkID" />
-  <br/> 
-     <p>Genre </p>   
+  <br/>
+     <p>Genre </p>
   <input type="radio" name="genre" value="classical" checked/>Classical
-     <br/> 
-  <input type="radio" name="genre" value="Rock" checked/>Rock 
-     <br/> 
-  <input type="radio" name="genre" value="electronic" checked/>Electronic 
-     <br/> 
+     <br/>
+  <input type="radio" name="genre" value="Rock" checked/>Rock
+     <br/>
+  <input type="radio" name="genre" value="electronic" checked/>Electronic
+     <br/>
   <input type="radio" name="genre" value="pop" checked/>Pop
-     <br/> 
+     <br/>
   <input type="radio" name="genre" value="foreign" checked/>Foreign
-     <br/> 
+     <br/>
   <input type="radio" name="genre" value="metal" checked/>Metal
-     <br/> 
+     <br/>
   <input type="radio" name="genre" value="other" checked/>Other
   <br/>
-  <input type="submit" value="Submit"/>   
+  <input type="submit" value="Submit"/>
 </form>
-        
-        
+
+
     </widget-cell>
 </widget-row>
-    
+
     <!-- SEARCH AND LIST EXAMPLE -->
     <div class="collapseMe">
         <widget-row>
